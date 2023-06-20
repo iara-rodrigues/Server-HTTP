@@ -214,7 +214,31 @@ app.get("/chat", (req, res) => {
 })
 
 app.get('*', (req, res) => {
-
+    const htmlResponse = `
+        <html>
+            <head>
+                <style>
+                body {
+                    background-color: #f2f2f2;
+                    font-family: Arial, sans-serif;
+                    text-align: left;
+                    padding: 20px;
+                }
+                h1 {
+                    color: #da6b6b;
+                }
+                p{
+                    color: #6E0A78
+                }
+                </style>
+            </head>
+            <body>
+                <h1> 404 - Not Found </h1>
+                <p>Não foi possível encontrar essa página.</p>
+            </body>
+        </html>
+    `;
+    res.status(404).send(htmlResponse)
 });
 
 // Conexão de socket
